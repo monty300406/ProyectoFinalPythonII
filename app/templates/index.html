@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='Formulario.css') }}">
+
+</head>
+<body>
+    <h1>Agregar</h1>
+
+    <h2>Agregar Celular</h2>
+    <form action="/guardar" method="post">
+        <input type="hidden" name="tipo" value="celular">
+        Marca: <input type="text" name="marca"><br>
+        Modelo: <input type="text" name="modelo"><br>
+        Precio: <input type="number" name="precio" step="0.01"><br>
+        <button type="submit">Guardar Celular</button>
+    </form>
+
+    <h2>Agregar Cliente</h2>
+    <form action="/guardar" method="post">
+        <input type="hidden" name="tipo" value="cliente">
+        Nombre: <input type="text" name="nombre"><br>
+        Email: <input type="email" name="email"><br>
+        Teléfono: <input type="text" name="telefono"><br>
+        <button type="submit">Guardar Cliente</button>
+    </form>
+
+    <h2>Agregar Proveedor</h2>
+    <form action="/guardar" method="post">
+        <input type="hidden" name="tipo" value="proveedor">
+        Nombre: <input type="text" name="nombre"><br>
+        Empresa: <input type="text" name="empresa"><br>
+        Teléfono: <input type="text" name="telefono"><br>
+        <button type="submit">Guardar Proveedor</button>
+    </form>
+</body>
+</html>
