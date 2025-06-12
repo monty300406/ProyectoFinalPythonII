@@ -11,15 +11,14 @@ import os
 
 app = FastAPI()
 
-# Montar carpeta "static" correctamente
+
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 
-# Plantillas HTML (Jinja2)
 templates = Jinja2Templates(directory="app/templates")
 
 
-# === MODELOS DE ENTRADA PARA JSON ===
+
 
 class CelularInput(BaseModel):
     marca: str
@@ -36,7 +35,7 @@ class ProveedorInput(BaseModel):
     empresa: str
     telefono: str
 
-# === RUTAS FRONTEND (FORMULARIO) ===
+
 
 @app.get("/", response_class=HTMLResponse)
 def form_index(request: Request):
@@ -88,7 +87,7 @@ def guardar_datos(
 
     return RedirectResponse("/", status_code=303)
 
-# === RUTAS API PARA POSTMAN (JSON) ===
+
 
 @app.get("/celulares", response_model=List[Celular])
 def get_celulares():
